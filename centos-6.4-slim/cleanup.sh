@@ -23,7 +23,7 @@ rpm -e --nodeps redhat-logos
 # Package cleanup
 yum -y erase gtk2 libX11 hicolor-icon-theme avahi freetype bitstream-vera-fonts perl gcc gcc-c++ cpp
 package-cleanup --quiet --leaves | xargs yum remove -y
-yum -y remove yum-utils wget
+yum -y remove yum-utils
 yum clean all
 
 rm -rf /etc/yum.repos.d/{puppetlabs,epel}.repo
