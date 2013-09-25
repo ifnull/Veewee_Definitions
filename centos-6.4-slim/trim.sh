@@ -8,7 +8,6 @@ wget  http://katana.oooninja.com/bleachbit/sf/bleachbit-0.9.6-1.1.centosCentOS-6
 rpm -Uvh bleachbit-0.9.6-1.1.centosCentOS-6.noarch.rpm 
 bleachbit -c yum.clean_all yum.vacuum system.cache system.localizations
 rm -f /tmp/bleachbit-0.9.6-1.1.centosCentOS-6.noarch.rpm
-yum remove -y bleachbit gnome-python2-gnomevfs pygtk2 python-simplejson redhat-rpm-config usermode
 cd ~
 
 # Remove non-english locales
