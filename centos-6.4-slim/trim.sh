@@ -1,15 +1,6 @@
 # Install YUM utils
 yum -y install wget yum-utils
 
-# Run bleachbit
-yum install -y -q gnome-python2-gnomevfs pygtk2 python-simplejson redhat-rpm-config usermode
-cd /tmp
-wget  http://katana.oooninja.com/bleachbit/sf/bleachbit-0.9.6-1.1.centosCentOS-6.noarch.rpm
-rpm -Uvh bleachbit-0.9.6-1.1.centosCentOS-6.noarch.rpm 
-bleachbit -c yum.clean_all yum.vacuum system.cache system.localizations
-rm -f /tmp/bleachbit-0.9.6-1.1.centosCentOS-6.noarch.rpm
-cd ~
-
 # Remove non-english locales
 rm /usr/lib/locale/locale-archive; ln -s /usr/lib/locale/locale-archive-rpm /usr/lib/locale/locale-archive
 localedef --no-archive -i en_US -f UTF-8 en_US.UTF-8
