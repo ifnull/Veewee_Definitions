@@ -27,8 +27,8 @@ Veewee::Session.declare({
   :postinstall_files => [
     "trim.sh",
     "base.sh",
-    "vagrant.sh",
     "virtualbox.sh",
+    "vagrant.sh",
     "cleanup.sh",
     "zerodisk.sh"
   ],
