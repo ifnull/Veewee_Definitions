@@ -19,10 +19,6 @@ rm -fR /lib/modules/`uname -r`/kernel/drivers/{usb,gpu,net/wireless,scsi/fcoe,bl
 # Remove docs
 rm -fR /usr/share/doc/{a..z}*/*
 
-# Kill logs
-truncate -s 0 /var/log/*.{log,syslog}
-truncate -s 0 /var/log/{dmesg,lastlog,secure,messages,maillog,wtmp}
-
 # Remove services
 SERVICES="anacron atd auditd blk-availability bluetooth cpuspeed cups dkms_autoinstaller fcoe gpm hidd ip6tables irda iscsi iscsid lldpad lvm2-monitor mdmonitor mdmpd netfs NetworkManager NetworkManagerDispatcher nfslock pcscd portmap postfix rawdevices rpcbind rsyslog smartd udev-post yum-updatesd"
 for i in $SERVICES; do service $i stop; chkconfig $i off; done

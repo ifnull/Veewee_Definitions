@@ -10,10 +10,10 @@ yum -y groupremove "iSCSI Storage Client"
 # Run bleachbit
 yum install -y -q gnome-python2-gnomevfs pygtk2 python-simplejson redhat-rpm-config usermode
 cd /tmp
-wget  http://katana.oooninja.com/bleachbit/sf/bleachbit-0.9.6-1.1.centosCentOS-6.noarch.rpm
-rpm -Uvh bleachbit-0.9.6-1.1.centosCentOS-6.noarch.rpm 
+wget  http://katana.oooninja.com/bleachbit/sf/bleachbit-1.0-1.1.centosCentOS-6.noarch.rpm
+rpm -Uvh bleachbit-1.0-1.1.centosCentOS-6.noarch.rpm
 bleachbit -c yum.clean_all yum.vacuum system.cache system.localizations
-rm -f /tmp/bleachbit-0.9.6-1.1.centosCentOS-6.noarch.rpm
+rm -f /tmp/bleachbit-1.0-1.1.centosCentOS-6.noarch.rpm
 cd ~
 
 # Remove more packages
@@ -32,3 +32,7 @@ rm -rf VBoxGuestAdditions_*.iso
 # Remove traces of mac address from network configuration
 sed -i /HWADDR/d /etc/sysconfig/network-scripts/ifcfg-eth0
 rm /etc/udev/rules.d/70-persistent-net.rules
+
+# Kill logs
+truncate -s 0 /var/log/*.{log,syslog}
+truncate -s 0 /var/log/{dmesg,lastlog,secure,messages,maillog,wtmp}
